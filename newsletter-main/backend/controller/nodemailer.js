@@ -21,11 +21,10 @@ const sendMailToUser = async (email) => {
       subject: "NewsLetter",
       html: ` <div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; text-align: center;">
             <h2 style="margin-bottom: 10px;">Your NewsLetter</h2>
-            <p><strong>Hello, Greeting of the day !</strong></p>
-            <p>We are excited to confirm your NewsLetter mail :</p>
-            <p>Please make sure to mark your calendar for this important event. Your participation is greatly appreciated.</p>
-            <p>If you have any questions or need further assistance, feel free to contact us.</p>
-            <p>Best regards</p>
+        
+            <h2>You are now subscribed</h2>
+   
+  
         </div>`,
     };
 
