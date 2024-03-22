@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>NewsLetter</title>
-</head>
-<body>
-
-    <div class="card">
-        <div id="input-field">
-            <input type="email" placeholder="Enter your email" id="email-input" >
-            <button id="submit">Send Newsletter</button>
-            <div id="status"></div>
-        </div>
+  </head>
+  <body>
+    <div class="new-card">
+      <div class="new-input-field">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          id="new-email-input"
+        />
+        <button id="new-submit">Send Newsletter</button>
+        <div id="new-status"></div>
+      </div>
     </div>
 
-<script>
-    const status = document.getElementById("status");
+    <script>
+      const newStatus = document.getElementById("new-status");
 
-    document.getElementById("submit").addEventListener("click", () => {
-        const email = document.getElementById("email-input").value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+      document.getElementById("new-submit").addEventListener("click", () => {
+        const email = document.getElementById("new-email-input").value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            status.innerHTML = "Enter a valid email address";
-            status.style.color = "red";
-            return; 
+          newStatus.innerHTML = "Enter a valid email address";
+          newStatus.style.color = "red";
+          return;
         }
 
         fetch("http://localhost:4500/newsLetter/send-mail", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email,
-            })
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+          }),
         })
-        .then(response => {
+          .then((response) => {
             if (response.ok) {
-                status.innerHTML = "Email sent successfully";
-                status.style.color = "green";
-                console.log("Email sent successfully");
+              newStatus.innerHTML = "Email sent successfully";
+              newStatus.style.color = "green";
+              console.log("Email sent successfully");
             } else {
-                status.innerHTML = "Failed to send email. Please try again later.";
-                status.style.color = "red";
-                console.error("Failed to send email");
+              newStatus.innerHTML =
+                "Failed to send email. Please try again later.";
+              newStatus.style.color = "red";
+              console.error("Failed to send email");
             }
-        })
-        .catch(error => {
-            status.innerHTML = "Error sending email. Please try again later.";
-            status.style.color = "red";
+          })
+          .catch((error) => {
+            newStatus.innerHTML =
+              "Error sending email. Please try again later.";
+            newStatus.style.color = "red";
             console.error("Error sending email:", error);
-        });
-    });
-</script>
-</body>
+          });
+      });
+    </script>
+  </body>
 </html>

@@ -1,33 +1,33 @@
-.card {
-  border: 1px solid #ccc;
+.new-card {
+  border: 3px solid #684c4c;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px; 
-  margin: 0 auto; 
+  box-shadow: 0 2px 4px rgba(37, 21, 21, 0.1);
+  width: 300px;
+  margin: 0 auto;
 }
 
-#input-field {
+.new-input-field {
   display: flex;
   flex-direction: column;
 }
 
-input[type="email"] {
+#new-email-input {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-button {
+#new-submit {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #107f79;
+  color: #352d2d;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+#new-submit:hover {
+  background-color: #00b392;
 }
